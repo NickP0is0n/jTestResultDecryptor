@@ -66,8 +66,8 @@ public class Controller {
     @FXML
     void export(ActionEvent event) throws FileNotFoundException {
         FileChooser chooser = new FileChooser(); //діалог збереження
-        chooser.setTitle("Збережіть файл із завданнями");
-        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Текстові файли (.txt)", "*.txt")); //фильтр файлов
+        chooser.setTitle("Save text file with results");
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files (.txt)", "*.txt")); //фильтр файлов
         File taskFile = chooser.showSaveDialog(new Stage()); //показ диалога на отдельной сцене
         boolean succesfullOpen = true;
         if (taskFile != null) {
@@ -76,31 +76,32 @@ public class Controller {
             } catch (IOException e) {
                 e.printStackTrace();
                 succesfullOpen = false;
-                showError("Виникла помилка при створенні файлу!");
+                showError("An error occurred while creating the file!");
             }
             if (succesfullOpen)
             {
                 PrintWriter out = new PrintWriter(taskFile);
                 out.println("jTest Exported Result");
+                out.println("jRes Generation 1");
                 out.println();
-                out.println("ЗАГАЛЬНА ІНФОРМАЦІЯ");
-                out.println("Прізвище учня: " + currentStudent.getSurName());
-                out.println("Ім'я учня: " + currentStudent.getName());
-                out.println("Клас учня: " + currentStudent.getGrade());
+                out.println("GENERAL INFO");
+                out.println("User surname: " + currentStudent.getSurName());
+                out.println("User name: " + currentStudent.getName());
+                out.println("Additional info: " + currentStudent.getGrade());
                 out.println();
-                out.println("ІНФОРМАЦІЯ ПРО ВИКОНАННЯ ЗАВДАНЬ");
-                out.println("Учень почав виконання: " + currentStudent.getStartTime());
-                out.println("Учень закінчив виконання: " + currentStudent.getFinishTime());
-                out.println("Всього виконано завдань: " + currentStudent.getTasksResults().size());
-                out.println("Всього пройдено тестів: " + Integer.parseInt(doneTestField.getText()) + " з " + currentStudent.getTasksResults().size() * 5);
+                out.println("TASK COMPLETION INFO");
+                out.println("Start time: " + currentStudent.getStartTime());
+                out.println("End time: " + currentStudent.getFinishTime());
+                out.println("Number of completed tasks: " + currentStudent.getTasksResults().size());
+                out.println("Number of passed tests: " + Integer.parseInt(doneTestField.getText()) + " out of " + currentStudent.getTasksResults().size() * 5);
                 for(int i = 0; i < currentStudent.getTasksResults().size(); i++)
                 {
                     out.println();
-                    out.println("ЗАДАЧА " + (i + 1));
-                    out.println("Тестів пройдено: " + currentStudent.getDoneTasks()[i] + " з 5");
+                    out.println("TASK #" + (i + 1));
+                    out.println("Tests passed: " + currentStudent.getDoneTasks()[i] + " out of 5");
                 }
                 out.println();
-                out.println("Результати роботи учня експортовано " + new Date().toString());
+                out.println("User results exported: " + new Date().toString());
                 out.close();
             }
         }
@@ -110,8 +111,8 @@ public class Controller {
     @FXML
     void open(ActionEvent event) {
         FileChooser chooser = new FileChooser(); //діалог збереження
-        chooser.setTitle("Оберіть файл із завданнями");
-        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Файли результатів (.jres)", "*.jres")); //фильтр файлов
+        chooser.setTitle("Choose task file");
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("jTest Result files (.jres)", "*.jres")); //фильтр файлов
         File taskFile = chooser.showOpenDialog(new Stage()); //показ диалога на отдельной сцене
         if(taskFile != null)
         {
@@ -132,7 +133,7 @@ public class Controller {
             }
             catch(Exception ex){
                 ex.printStackTrace();
-                showError("Виникла помилка при читанні файлу!");
+                showError("An error occurred while reading the file!");
             }
         }
     }
@@ -140,7 +141,7 @@ public class Controller {
     private void showError(String text)
     {
         Alert error = new Alert(Alert.AlertType.ERROR); //Создание окна ошибки
-        error.setTitle("Помилка");
+        error.setTitle("Error");
         error.setContentText(text);
         error.showAndWait();
     }
