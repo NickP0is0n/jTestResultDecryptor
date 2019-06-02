@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -46,14 +47,14 @@ public class Controller {
     @FXML
     void about(ActionEvent event) {
         Alert aboutAlert = new Alert(Alert.AlertType.INFORMATION); //Создание окна ошибки
-        aboutAlert.setTitle("Про програму");
-        aboutAlert.setGraphic(new ImageView(new File("resources/logo.png").toURI().toString()));
+        aboutAlert.setTitle("About jTest Result Decryptor");
+        aboutAlert.setGraphic(new ImageView(new Image(Controller.class.getClassLoader().getResourceAsStream("logo.png"))));
         aboutAlert.setHeaderText("jTest Result Decryptor");
-        aboutAlert.setContentText("Версія 1.0.0\n\n" +
-                "jTest Result Decryptor є програмою для дешифрування результатів учнів, які пройшли тестування у jTest Student.\n\n" +
-                "jTest Result Decryptor є частиною програмного комплексу " +
-                "jTest для тестування учнів з інформатики.\n" +
-                "Початковий код захищено 3-пунктовою ліцензією BSD.");
+        aboutAlert.setContentText("Version 1.1 Beta 1\n\n" +
+                "jTest Result Decryptor is a program to decrypt the results of users tested in jTest Student.\n\n" +
+                "jTest Result Decryptor is a part of jTest software package.\n"+
+                "Source code licensed under BSD-3 Clause license. Feel free to use/copy/modify this package as long as you specifying the name of the author.\n" +
+                "Copyright (c) 2019, Nickolay Chaykovskyi All rights reserved.");
         aboutAlert.showAndWait();
     }
 
