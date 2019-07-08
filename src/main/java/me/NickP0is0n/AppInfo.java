@@ -14,7 +14,7 @@ public class AppInfo {
     }
 
     private AppInfo() {
-        version = "Version 1.1 Beta 1";
+        version = "Version 1.1 Beta 2";
         build = "";
     }
 
