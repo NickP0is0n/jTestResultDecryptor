@@ -60,37 +60,45 @@ public class Controller {
 
     @FXML
     void open(ActionEvent event) {
-        FileChooser chooser = new FileChooser(); //діалог збереження
-        chooser.setTitle("Choose task file");
-        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("jTest Result files (.jres)", "*.jres")); //фильтр файлов
-        File taskFile = chooser.showOpenDialog(new Stage()); //показ диалога на отдельной сцене
-        if(taskFile != null)
-        {
-            exportBtn.setDisable(false);
-            try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(taskFile)))
-            {
-                currentStudent = (Student) ois.readObject();
-                nameField.setText(currentStudent.getName());
-                surNameField.setText(currentStudent.getSurName());
-                gradeField.setText(currentStudent.getGrade());
-                totalTaskField.setText(String.valueOf(currentStudent.getDoneTasks().length));
-                totalTestField.setText(String.valueOf(currentStudent.getDoneTasks().length * 5));
-                int doneTest = 0;
-                for (int i = 0; i < currentStudent.getTasksResults().size(); i++) doneTest += currentStudent.getTasksResults().get(i)[1];
-                doneTestField.setText(String.valueOf(doneTest));
-                startDate.setText(currentStudent.getStartTime().toString());
-                endDate.setText(currentStudent.getFinishTime().toString());
-            }
-            catch(Exception ex){
-                ex.printStackTrace();
-                showError("An error occurred while reading the file!");
-            }
-        }
+        final File inputFile = getFileFromOpenDialog("Choose task file", "*.jres", "jTest Result files (.jres)");
+        importStudentInfoFromFile(inputFile);
     }
+
+
+
 
 
     private Student currentStudent;
     private AppInfo appInfo = AppInfo.getInstance();
+
+    private void importStudentInfoFromFile (File inputFile) {
+        if(inputFile != null)
+        {
+            exportBtn.setDisable(false);
+            getStudentInfoFromFile(inputFile);
+        }
+    }
+
+    private void getStudentInfoFromFile(File inputFile) {
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(inputFile)))
+        {
+            currentStudent = (Student) ois.readObject();
+            nameField.setText(currentStudent.getName());
+            surNameField.setText(currentStudent.getSurName());
+            gradeField.setText(currentStudent.getGrade());
+            totalTaskField.setText(String.valueOf(currentStudent.getDoneTasks().length));
+            totalTestField.setText(String.valueOf(currentStudent.getDoneTasks().length * 5));
+            int doneTest = 0;
+            for (int i = 0; i < currentStudent.getTasksResults().size(); i++) doneTest += currentStudent.getTasksResults().get(i)[1];
+            doneTestField.setText(String.valueOf(doneTest));
+            startDate.setText(currentStudent.getStartTime().toString());
+            endDate.setText(currentStudent.getFinishTime().toString());
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            showError("An error occurred while reading the file!");
+        }
+    }
 
     private void showInformationAboutApplication()
     {
@@ -138,6 +146,12 @@ public class Controller {
     {
         FileChooser chooser = makeChooser(title, extension, extensionDescription);
         return chooser.showSaveDialog(new Stage()); //показ диалога на отдельной сцене
+    }
+
+    private File getFileFromOpenDialog(String title, String extension, String extensionDescription) //extension in *.ext format
+    {
+        FileChooser chooser = makeChooser(title, extension, extensionDescription);
+        return chooser.showOpenDialog(new Stage()); //показ диалога на отдельной сцене
     }
 
     private void printResults(File targetFile) throws FileNotFoundException {
@@ -189,10 +203,8 @@ public class Controller {
 
     private void showError(String text)
     {
-        Alert error = new Alert(Alert.AlertType.ERROR); //Создание окна ошибки
-        error.setTitle("Error");
-        error.setContentText(text);
-        error.showAndWait();
+        Alert error = makeAlert(Alert.AlertType.ERROR, "Error", "Error", text);
+        showAlert(error);
     }
 
 }
