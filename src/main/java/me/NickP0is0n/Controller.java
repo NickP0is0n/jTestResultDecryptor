@@ -2,6 +2,7 @@ package me.NickP0is0n;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -10,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import me.NickP0is0n.FormAPI.Form;
 
 import java.io.*;
 import java.util.Date;
@@ -67,7 +70,6 @@ public class Controller {
 
 
 
-
     private Student currentStudent;
     private AppInfo appInfo = AppInfo.getInstance();
 
@@ -100,20 +102,14 @@ public class Controller {
         }
     }
 
-    private void showInformationAboutApplication()
-    {
-        final Alert.AlertType alertType = Alert.AlertType.INFORMATION;
-        final String title = "About jTest Result Decryptor";
-        final Node graphic = new ImageView(new Image(Controller.class.getClassLoader().getResourceAsStream("logo.png")));
-        final String headerText = "jTest Result Decryptor";
-        final String contentText = appInfo.getVersion() + "\n\n" +
-                "jTest Result Decryptor is a program to decrypt the results of users tested in jTest Student.\n\n" +
-                "jTest Result Decryptor is a part of jTest software package.\n"+
-                "Source code licensed under BSD-3 Clause license. Feel free to use/copy/modify this package as long as you specifying the name of the author.\n" +
-                "Copyright (c) 2019, Nickolay Chaykovskyi All rights reserved.";
-
-        Alert infoAlert = makeGraphicalAlert(alertType, title, headerText, contentText, graphic);
-        showAlert(infoAlert);
+    private void showInformationAboutApplication() {
+        Form aboutForm = new Form("about.fxml", "About jTest Student", 600, 400, false);
+        aboutForm.setStageStyle(StageStyle.UNDECORATED);
+        try {
+            aboutForm.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private Alert makeAlert(Alert.AlertType alertType, String title, String headerText, String contentText) {
