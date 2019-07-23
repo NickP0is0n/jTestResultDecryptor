@@ -6,14 +6,11 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.Controller">
+<VBox prefHeight="415.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.Controller">
   <children>
     <MenuBar style="-fx-background-color: cccccc;" VBox.vgrow="NEVER">
       <menus>
@@ -33,33 +30,23 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="371.0" prefWidth="695.0" style="-fx-background-color: ffffff;" VBox.vgrow="ALWAYS">
          <children>
-            <TextField fx:id="nameField" editable="false" layoutX="165.0" layoutY="31.0" prefHeight="27.0" prefWidth="319.0" />
-            <TextField fx:id="surNameField" editable="false" layoutX="165.0" layoutY="69.0" prefHeight="27.0" prefWidth="319.0" />
-            <TextField fx:id="totalTaskField" editable="false" layoutX="165.0" layoutY="158.0" prefHeight="27.0" prefWidth="319.0" />
-            <TextField fx:id="totalTestField" editable="false" layoutX="165.0" layoutY="197.0" prefHeight="27.0" prefWidth="319.0" />
-            <TextField fx:id="doneTestField" editable="false" layoutX="165.0" layoutY="236.0" prefHeight="27.0" prefWidth="319.0" />
-            <TextField fx:id="gradeField" editable="false" layoutX="165.0" layoutY="104.0" prefHeight="27.0" prefWidth="319.0" />
-            <TextField fx:id="startDate" editable="false" layoutX="165.0" layoutY="275.0" prefHeight="27.0" prefWidth="319.0" />
-            <TextField fx:id="endDate" editable="false" layoutX="165.0" layoutY="313.0" prefHeight="27.0" prefWidth="319.0" />
-            <Button fx:id="exportBtn" disable="true" layoutX="508.0" layoutY="294.0" mnemonicParsing="false" onAction="#export" prefHeight="46.0" prefWidth="196.0" text="Export details to text file..." wrapText="true" />
-            <Text layoutX="53.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-            <Text layoutX="53.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" />
-            <Text layoutX="53.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional info" />
-            <Text layoutX="52.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of tasks" />
-            <Text layoutX="53.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of tests" />
-            <Text layoutX="52.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tests passed" />
-            <Text layoutX="53.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start time" />
-            <Text layoutX="53.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Finish time" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="531.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@logo.png" />
-               </image>
-            </ImageView>
-            <Text layoutX="514.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="jTest Result Decryptor">
-               <font>
-                  <Font name="Lato Black" size="18.0" />
-               </font>
-            </Text>
+            <TextField fx:id="nameField" editable="false" layoutX="159.0" layoutY="14.0" prefHeight="27.0" prefWidth="319.0" />
+            <TextField fx:id="surNameField" editable="false" layoutX="159.0" layoutY="52.0" prefHeight="27.0" prefWidth="319.0" />
+            <TextField fx:id="totalTaskField" editable="false" layoutX="159.0" layoutY="135.0" prefHeight="27.0" prefWidth="319.0" />
+            <TextField fx:id="totalTestField" editable="false" layoutX="159.0" layoutY="174.0" prefHeight="27.0" prefWidth="319.0" />
+            <TextField fx:id="doneTestField" editable="false" layoutX="159.0" layoutY="213.0" prefHeight="27.0" prefWidth="319.0" />
+            <TextField fx:id="gradeField" editable="false" layoutX="159.0" layoutY="87.0" prefHeight="27.0" prefWidth="319.0" />
+            <TextField fx:id="startDate" editable="false" layoutX="159.0" layoutY="252.0" prefHeight="27.0" prefWidth="319.0" />
+            <TextField fx:id="endDate" editable="false" layoutX="159.0" layoutY="290.0" prefHeight="27.0" prefWidth="319.0" />
+            <Button fx:id="exportBtn" disable="true" layoutX="165.0" layoutY="332.0" mnemonicParsing="false" onAction="#export" prefHeight="38.0" prefWidth="194.0" text="Export details to text file..." wrapText="true" />
+            <Text layoutX="47.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+            <Text layoutX="47.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" />
+            <Text layoutX="47.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional info" />
+            <Text layoutX="46.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of tasks" />
+            <Text layoutX="47.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of tests" />
+            <Text layoutX="46.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tests passed" />
+            <Text layoutX="47.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start time" />
+            <Text layoutX="47.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Finish time" />
          </children>
     </AnchorPane>
   </children>
