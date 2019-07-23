@@ -65,7 +65,6 @@ public class Form {
     }
 
     private FXMLLoader makeFXMLLoader() {
-        FXMLLoader loader = new FXMLLoader(Form.class.getClassLoader().getResource(FXML_FORM_FILE));
-        return loader;
+        return new FXMLLoader(Form.class.getClassLoader().getResource(FXML_FORM_FILE));
     }
 }
