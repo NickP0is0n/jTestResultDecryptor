@@ -8,20 +8,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="380.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.IntroController">
+<VBox prefHeight="380.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.IntroController">
     <AnchorPane prefWidth="763.0" style="-fx-background-color: FFFFFF;" VBox.vgrow="ALWAYS">
-        <Button layoutX="28.0" layoutY="236.0" mnemonicParsing="false" onAction="#onOpenBtn" prefHeight="29.0" prefWidth="219.0" text="Decrypt result file..." />
-        <Text layoutX="24.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="jTest Result Decryptor">
+        <Button layoutX="47.0" layoutY="241.0" mnemonicParsing="false" onAction="#onOpenBtn" prefHeight="29.0" prefWidth="254.0" text="Decrypt result file..." />
+        <Text layoutX="60.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="jTest Result Decryptor">
             <font>
                 <Font name="Helvetica" size="23.0" />
             </font>
         </Text>
-        <ImageView fitHeight="76.0" fitWidth="101.0" layoutX="96.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="76.0" fitWidth="101.0" layoutX="132.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@logo.png" />
         </ImageView>
-        <Button layoutX="28.0" layoutY="278.0" mnemonicParsing="false" onAction="#onAboutBtn" prefHeight="29.0" prefWidth="219.0" text="About jTest Result Decryptor" />
-        <Button layoutX="28.0" layoutY="322.0" mnemonicParsing="false" onAction="#onExitBtn" prefHeight="29.0" prefWidth="219.0" text="Close" />
-        <Text layoutX="95.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version 1.1">
+        <Button layoutX="47.0" layoutY="282.0" mnemonicParsing="false" onAction="#onAboutBtn" prefHeight="29.0" prefWidth="254.0" text="About jTest Result Decryptor" />
+        <Button layoutX="47.0" layoutY="324.0" mnemonicParsing="false" onAction="#onExitBtn" prefHeight="29.0" prefWidth="254.0" text="Close" />
+        <Text layoutX="131.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version 1.1">
             <font>
                 <Font name="Helvetica Light" size="17.0" />
             </font>

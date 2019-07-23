@@ -46,6 +46,13 @@ public class Controller {
     private Button exportBtn;
 
     @FXML
+    void initialize() {
+        exportBtn.setDisable(false);
+        assert IntroController.selectedFile != null;
+        getStudentInfoFromFile(IntroController.selectedFile);
+    }
+
+    @FXML
     void about(ActionEvent event) {
         showInformationAboutApplication();
     }
