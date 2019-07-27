@@ -2,20 +2,20 @@ package me.NickP0is0n;
 
 public class AppInfo {
 
-    private final String version;
-    private final String build;
+    private final String VERSION;
+    private final String BUILD;
 
     public String getVersion() {
-        return version;
+        return VERSION;
     }
 
     public String getBuild() {
-        return build;
+        return BUILD;
     }
 
     private AppInfo() {
-        version = "Version 1.1 Beta 2";
-        build = "";
+        VERSION = "1.1 Beta 2 (Developer Branch)";
+        BUILD = "July 27, 2019";
     }
 
     public static AppInfo getInstance() {
