@@ -160,7 +160,6 @@ public class Controller {
     private void printResults(File targetFile) throws FileNotFoundException {
         try (PrintWriter out = new PrintWriter(targetFile)) {
             out.println("jTest Exported Result");
-            out.println("jRes Generation 1");
             out.println();
             out.println("GENERAL INFO");
             out.println("User surname: " + currentStudent.getSurName());
