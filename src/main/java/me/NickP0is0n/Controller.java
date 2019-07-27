@@ -1,14 +1,13 @@
 package me.NickP0is0n;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -46,6 +45,9 @@ public class Controller {
     private Button exportBtn;
 
     @FXML
+    private AnchorPane appPane;
+
+    @FXML
     void initialize() {
         exportBtn.setDisable(false);
         assert IntroController.selectedFile != null;
@@ -53,32 +55,28 @@ public class Controller {
     }
 
     @FXML
-    void about(ActionEvent event) {
+    void about() {
         showInformationAboutApplication();
     }
 
     @FXML
-    void exit(ActionEvent event) {
+    void exit() {
         System.exit(0);
     }
 
     @FXML
-    void export(ActionEvent event) {
+    void export() {
         final File targetFile = getFileFromSaveDialog("Save text file with results", "*.txt", "Text files (.txt)");
         saveResultsToFile(targetFile);
     }
 
     @FXML
-    void open(ActionEvent event) {
+    void open() {
         final File inputFile = getFileFromOpenDialog("Choose task file", "*.jres", "jTest Result files (.jres)");
         importStudentInfoFromFile(inputFile);
     }
 
-
-
-
     private Student currentStudent;
-    private AppInfo appInfo = AppInfo.getInstance();
 
     private void importStudentInfoFromFile (File inputFile) {
         if(inputFile != null)
@@ -102,6 +100,10 @@ public class Controller {
             doneTestField.setText(String.valueOf(doneTest));
             startDate.setText(currentStudent.getStartTime().toString());
             endDate.setText(currentStudent.getFinishTime().toString());
+            Platform.runLater(() -> {
+                Stage currentStage = (Stage) appPane.getScene().getWindow();
+                currentStage.setTitle(inputFile.getAbsolutePath() + " [jTest Result Decryptor]");
+            });
         }
         catch(Exception ex){
             ex.printStackTrace();
@@ -124,12 +126,6 @@ public class Controller {
         targetAlert.setTitle(title);
         targetAlert.setHeaderText(headerText);
         targetAlert.setContentText(contentText);
-        return targetAlert;
-    }
-
-    private Alert makeGraphicalAlert(Alert.AlertType alertType, String title, String headerText, String contentText, Node graphic) {
-        Alert targetAlert = makeAlert(alertType, title, headerText, contentText);
-        targetAlert.setGraphic(graphic);
         return targetAlert;
     }
 

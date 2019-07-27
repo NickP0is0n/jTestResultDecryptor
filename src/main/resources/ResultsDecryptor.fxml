@@ -28,7 +28,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="371.0" prefWidth="695.0" style="-fx-background-color: ffffff;" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="appPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="371.0" prefWidth="695.0" style="-fx-background-color: ffffff;" VBox.vgrow="ALWAYS">
          <children>
             <TextField fx:id="nameField" editable="false" layoutX="159.0" layoutY="14.0" prefHeight="27.0" prefWidth="319.0" />
             <TextField fx:id="surNameField" editable="false" layoutX="159.0" layoutY="52.0" prefHeight="27.0" prefWidth="319.0" />
