@@ -14,7 +14,7 @@ public class AppInfo {
     }
 
     private AppInfo() {
-        VERSION = "1.1 Beta 2 (Developer Branch)";
+        VERSION = "1.1 Release Candidate 1";
         BUILD = "July 27, 2019";
     }
 
