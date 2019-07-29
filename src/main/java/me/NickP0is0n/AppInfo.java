@@ -14,12 +14,11 @@ public class AppInfo {
     }
 
     private AppInfo() {
-        VERSION = "1.1 Release Candidate 1";
-        BUILD = "July 27, 2019";
+        VERSION = "1.1.0";
+        BUILD = "July 29, 2019";
     }
 
     public static AppInfo getInstance() {
-        AppInfo info = new AppInfo();
-        return info;
+        return new AppInfo();
     }
 }
