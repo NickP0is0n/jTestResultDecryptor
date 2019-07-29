@@ -72,7 +72,7 @@ public class Controller {
 
     @FXML
     void open() {
-        final File inputFile = getFileFromOpenDialog("Choose task file", "*.jres", "jTest Result files (.jres)");
+        final File inputFile = getFileFromOpenDialog("Choose result file", "*.jres", "jTest Result files (.jres)");
         importStudentInfoFromFile(inputFile);
     }
 

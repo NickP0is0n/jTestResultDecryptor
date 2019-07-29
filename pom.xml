@@ -26,6 +26,7 @@
                     <vendor>NickP0is0n</vendor>
                     <mainClass>me.NickP0is0n.Main</mainClass>
                     <nativeReleaseVersion>1.1</nativeReleaseVersion>
+                    <appName>jTest Result Decryptor</appName>
                 </configuration>
             </plugin>
         </plugins>
